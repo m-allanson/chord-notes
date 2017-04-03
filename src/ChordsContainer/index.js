@@ -29,49 +29,57 @@ const noteNames = new Map([
   [G_SHARP, 'G#'],
 ])
 
+// rotate an array
+const rotate = (arr, count) => {
+  count -= arr.length * Math.floor(count / arr.length)
+  arr.push.apply(arr, arr.splice(0, count))
+  return arr
+}
+
 class ChordsContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {}
     this.setChordNotes = this.setChordNotes.bind(this)
     this.chordIntervals = new Map([
-      ['major', [0, 4, 7]],
-      ['minor', [0, 3, 7]],
-      ['seventh', [0, 4, 7, 10]],
+      ['major', [1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0]],
+      ['minor', [1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0]],
+      ['seventh', [1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0]],
     ])
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.setChordNotes(A)
   }
 
   chordNotes(
-    root,
     intervals,
-    noteNames,
+    octave,
   ) {
-    const notes = [...noteNames.keys()]
-    const offset = notes.indexOf(root)
-    const max = noteNames.size
+    // Map 1s and 0s to notes or nulls
+    const chordNotes = intervals
+      .map((interval, index) => (
+        interval ? octave[index] : null)
+      )
 
-    return intervals
-      .map(index => {
-        const offsetIndex = offset + index
-        const normalIndex = (offsetIndex >= max)
-          ? offsetIndex - max
-          : offsetIndex
-        return noteNames.get(notes[normalIndex])
-      })
+      return chordNotes
   }
 
   setChordNotes(root) {
     const {chordNotes, chordIntervals} = this
+
+    const octaveKeys = [...noteNames.keys()]
+    const rootOffset = octaveKeys.indexOf(root)
+    const rootOctave = rotate(octaveKeys, rootOffset)
+
     const chords = [...chordIntervals]
       .map(([name, intervals]) => (
-        [ name, chordNotes(root, intervals, noteNames) ]
+        [ name, chordNotes(intervals, rootOctave) ]
       ))
+
     this.setState({
       chords: new Map(chords),
+      octave: rootOctave,
       root,
     })
     // , () => {console.log('state', this.state)}
@@ -81,9 +89,10 @@ class ChordsContainer extends Component {
     return (
       <div>
         <Chords
-          noteNames={noteNames}
-          onNoteClick={this.setChordNotes}
           chords={this.state.chords}
+          noteNames={noteNames}
+          octave={this.state.octave}
+          onNoteClick={this.setChordNotes}
           root={this.state.root}
         />
       </div>

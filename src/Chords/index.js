@@ -1,39 +1,46 @@
 import React from 'react'
 
+import './index.css';
+
 const Chords = ({
-  noteNames,
-  onNoteClick,
   chords,
+  noteNames,
+  octave,
+  onNoteClick,
   root,
 }) => {
-  // console.log('noteNames', noteNames)
-  // const notes = [...noteNames.keys()]
-  // const offset = notes.indexOf(root)
-
   return (
     <div>
-      <h2>Choose root note</h2>
+      <h2>Root note: {noteNames.get(root)}</h2>
+      <div className="Octave">
       {
-        [...noteNames]
-          .map(([key, value]) => (
+        octave.map(key => (
             <a
-              key={value}
+              className="OctaveNote"
+              key={noteNames.get(key)}
               onClick={() => onNoteClick(key)}
             >
-              {` ${value} `}
+              {` ${noteNames.get(key)} `}
             </a>
           ))
       }
+      </div>
       {
-        chords &&
         [...chords]
-          .map(([type, notes]) => (
-            <p key={type}>
-              <span>{type}: </span>
-              {notes.join(', ')}
-            </p>
+          .map(([chordType, notes]) => (
+            <div key={chordType}>
+              {/*<div className="ChordType">
+                {chordType}
+              </div>*/}
+              <div className="ChordNotes">
+                {[...notes].map((note, i) => {
+                  const value = note ? noteNames.get(note) : ' '
+                  return <div key={i} className="ChordNote">{value}</div>
+                })}
+              </div>
+            </div>
           ))
-      }
+        }
     </div>
   )
 }
