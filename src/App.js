@@ -8,7 +8,8 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <h2>Welcome to Chords</h2>
+          <h2>Chord notes</h2>
+          <p>Choose a root note to see how its chords are built</p>
         </div>
         <ChordsContainer />
       </div>

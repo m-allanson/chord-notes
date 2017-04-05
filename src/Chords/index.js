@@ -9,38 +9,79 @@ const Chords = ({
   onNoteClick,
   root,
 }) => {
+  const rootName = noteNames.get(root)
   return (
     <div>
-      <h2>Root note: {noteNames.get(root)}</h2>
-      <div className="Octave">
-      {
-        octave.map(key => (
-            <a
-              className="OctaveNote"
-              key={noteNames.get(key)}
-              onClick={() => onNoteClick(key)}
-            >
-              {` ${noteNames.get(key)} `}
-            </a>
-          ))
-      }
-      </div>
-      {
-        [...chords]
-          .map(([chordType, notes]) => (
-            <div key={chordType}>
-              {/*<div className="ChordType">
-                {chordType}
-              </div>*/}
-              <div className="ChordNotes">
-                {[...notes].map((note, i) => {
-                  const value = note ? noteNames.get(note) : ' '
-                  return <div key={i} className="ChordNote">{value}</div>
-                })}
-              </div>
-            </div>
-          ))
-        }
+      <h2>Root note: {rootName}</h2>
+      <table className="ChordTable">
+        <colgroup>
+          <col span="1" style={{ width: '16%' }} />
+          <col span="1" style={{ width: '7%' }} />
+          <col span="1" style={{ width: '7%' }} />
+          <col span="1" style={{ width: '7%' }} />
+          <col span="1" style={{ width: '7%' }} />
+          <col span="1" style={{ width: '7%' }} />
+          <col span="1" style={{ width: '7%' }} />
+          <col span="1" style={{ width: '7%' }} />
+          <col span="1" style={{ width: '7%' }} />
+          <col span="1" style={{ width: '7%' }} />
+          <col span="1" style={{ width: '7%' }} />
+          <col span="1" style={{ width: '7%' }} />
+          <col span="1" style={{ width: '7%' }} />
+        </colgroup>
+        <tbody className="ChordTableHead">
+          <tr className="Octave">
+            <th className="Col1">Notes</th>
+          {
+            octave.map((note, i) => (
+              <th className={`OctaveNote OctaveNote${i}`} key={i}>
+                <a className="OctaveNoteInner" onClick={() => onNoteClick(note)}>
+                  {noteNames.get(note)}
+                </a>
+              </th>
+            ))
+          }
+          </tr>
+        </tbody>
+      </table>
+      <h2>Chords</h2>
+
+      <table className="ChordTable">
+        <colgroup>
+          <col span="1" style={{ width: '16%' }} />
+          <col span="1" style={{ width: '7%' }} />
+          <col span="1" style={{ width: '7%' }} />
+          <col span="1" style={{ width: '7%' }} />
+          <col span="1" style={{ width: '7%' }} />
+          <col span="1" style={{ width: '7%' }} />
+          <col span="1" style={{ width: '7%' }} />
+          <col span="1" style={{ width: '7%' }} />
+          <col span="1" style={{ width: '7%' }} />
+          <col span="1" style={{ width: '7%' }} />
+          <col span="1" style={{ width: '7%' }} />
+          <col span="1" style={{ width: '7%' }} />
+          <col span="1" style={{ width: '7%' }} />
+        </colgroup>
+        <tbody>
+        {
+          [...chords]
+            .map(([chordType, notes]) => (
+              <tr className="Chord" key={chordType}>
+                <td className="Col1">
+                  {rootName} {chordType}
+                </td>
+                {
+                  [...notes].map((note, i) => (
+                    <td key={i} className="ChordNote" >
+                      {noteNames.get(note) || ''}
+                    </td>
+                  ))
+                }
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
     </div>
   )
 }
