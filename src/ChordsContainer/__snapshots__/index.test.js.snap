@@ -1,0 +1,63 @@
+exports[`test outputs the correct notes for G chords 1`] = `
+Map {
+  "major" => Array [
+    Symbol(G),
+    null,
+    null,
+    null,
+    Symbol(B),
+    null,
+    null,
+    Symbol(D),
+    null,
+    null,
+    null,
+    null,
+  ],
+  "minor" => Array [
+    Symbol(G),
+    null,
+    null,
+    Symbol(A_SHARP),
+    null,
+    null,
+    null,
+    Symbol(D),
+    null,
+    null,
+    null,
+    null,
+  ],
+  "seventh" => Array [
+    Symbol(G),
+    null,
+    null,
+    null,
+    Symbol(B),
+    null,
+    null,
+    Symbol(D),
+    null,
+    null,
+    Symbol(F),
+    null,
+  ],
+}
+`;
+
+exports[`test rotates an octave to have a root of G 1`] = `
+Array [
+  Symbol(G),
+  Symbol(G_SHARP),
+  Symbol(A),
+  Symbol(A_SHARP),
+  Symbol(B),
+  Symbol(C),
+  Symbol(C_SHARP),
+  Symbol(D),
+  Symbol(D_SHARP),
+  Symbol(E),
+  Symbol(F),
+  Symbol(F_SHARP),
+]
+`;
