@@ -44,7 +44,7 @@ const Chords = ({
           </tr>
         </tbody>
       </table>
-      <h2>Chords</h2>
+      <h2>Notes appearing in {rootName} chords</h2>
 
       <table className="ChordTable">
         <colgroup>
