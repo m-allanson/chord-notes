@@ -1,10 +1,11 @@
 // @flow
-import React, { Component } from 'react';
-import './App.css';
+import React, { Component } from 'react'
+import './App.css'
 import ChordsContainer from './ChordsContainer'
 
 class App extends Component {
   render() {
+    console.log('window.location.pathname', window.location.pathname)
     return (
       <div className="App">
         <div className="App-header">
@@ -13,8 +14,8 @@ class App extends Component {
         </div>
         <ChordsContainer />
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App

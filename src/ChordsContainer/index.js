@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react'
 import Chords from '../Chords'
 
@@ -24,13 +23,13 @@ const rotate = (arr, count) => {
 
 class ChordsContainer extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.chordIntervals = new Map([
-      ['major',   [1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0]],
-      ['minor',   [1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0]],
+      ['major', [1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0]],
+      ['minor', [1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0]],
       ['seventh', [1, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0]],
-      ['sus2',    [1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0]],
-      ['sus4',    [1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0]],
+      ['sus2', [1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0]],
+      ['sus4', [1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0]]
     ])
     this.noteNames = new Map([
       [A, 'A'],
@@ -44,7 +43,7 @@ class ChordsContainer extends Component {
       [F, 'F'],
       [F_SHARP, 'F#'],
       [G, 'G'],
-      [G_SHARP, 'G#'],
+      [G_SHARP, 'G#']
     ])
     this.setChordNotes = this.setChordNotes.bind(this)
     this.state = {}
@@ -69,10 +68,9 @@ class ChordsContainer extends Component {
    * @return {Array}
    */
   fillFromFilter(source, sourceFilter) {
-    return sourceFilter
-      .map((useValue, index) => (
-        useValue ? source[index] : null)
-      )
+    return sourceFilter.map(
+      (useValue, index) => (useValue ? source[index] : null)
+    )
   }
 
   /**
@@ -95,12 +93,12 @@ class ChordsContainer extends Component {
    * chordIntervals map
    */
   getChords(octave, chordIntervals, octaveFilter) {
-    const chords = [...chordIntervals]
-      .map(([name, intervals]) => (
-        [ name, octaveFilter(octave, intervals) ]
-      ))
+    const chords = [...chordIntervals].map(([name, intervals]) => [
+      name,
+      octaveFilter(octave, intervals)
+    ])
 
-      return new Map(chords)
+    return new Map(chords)
   }
 
   /**
@@ -118,13 +116,19 @@ class ChordsContainer extends Component {
   }
 
   setChordNotes(root) {
-    const {getOctaveFromRoot, getChords, fillFromFilter, chordIntervals, noteNames} = this
+    const {
+      getOctaveFromRoot,
+      getChords,
+      fillFromFilter,
+      chordIntervals,
+      noteNames
+    } = this
     const octave = getOctaveFromRoot(root, noteNames)
     const chords = getChords(octave, chordIntervals, fillFromFilter)
     this.setState({
       chords,
       octave,
-      root,
+      root
     })
     // , () => {console.log('state', this.state)}
   }

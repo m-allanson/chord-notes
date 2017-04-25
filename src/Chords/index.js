@@ -1,14 +1,8 @@
 import React from 'react'
 
-import './index.css';
+import './index.css'
 
-const Chords = ({
-  chords,
-  noteNames,
-  octave,
-  onNoteClick,
-  root,
-}) => {
+const Chords = ({ chords, noteNames, octave, onNoteClick, root }) => {
   const rootName = noteNames.get(root)
   return (
     <div className="Chords">
@@ -31,15 +25,16 @@ const Chords = ({
         <tbody className="ChordsTableHead">
           <tr className="ChordsOctave">
             <th className="ChordsCol1">Root note</th>
-          {
-            octave.map((note, i) => (
+            {octave.map((note, i) => (
               <th className={`ChordsOctaveNote ChordsOctaveNote${i}`} key={i}>
-                <a className="ChordsOctaveNoteInner" onClick={() => onNoteClick(note)}>
+                <a
+                  className="ChordsOctaveNoteInner"
+                  onClick={() => onNoteClick(note)}
+                >
                   {noteNames.get(note)}
                 </a>
               </th>
-            ))
-          }
+            ))}
           </tr>
         </tbody>
         <tbody>
@@ -63,23 +58,18 @@ const Chords = ({
           <col span="1" style={{ width: '7%' }} />
         </colgroup>
         <tbody>
-        {
-          [...chords]
-            .map(([chordType, notes]) => (
-              <tr className="ChordsItem" key={chordType}>
-                <td className="Col1">
-                  {rootName} {chordType}
+          {[...chords].map(([chordType, notes]) => (
+            <tr className="ChordsItem" key={chordType}>
+              <td className="Col1">
+                {rootName} {chordType}
+              </td>
+              {[...notes].map((note, i) => (
+                <td key={i} className="ChordsItemNote">
+                  {noteNames.get(note) || ''}
                 </td>
-                {
-                  [...notes].map((note, i) => (
-                    <td key={i} className="ChordsItemNote" >
-                      {noteNames.get(note) || ''}
-                    </td>
-                  ))
-                }
-              </tr>
-            ))
-          }
+              ))}
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
