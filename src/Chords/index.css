@@ -1,32 +1,28 @@
-.Col1 {
-  text-align: left;
-  padding-left: 16px;
+.ChordsCol1 {
   text-transform: capitalize;
 }
 
-.ChordTable {
-  width: 100%;
+
+.ChordsItemNote {
+  border-right: 1px solid #e1e1e1;
 }
 
-.ChordNote {
-  border-right: 1px solid darkslategray;
+.ChordsOctaveNote {
+  border-right: 1px solid #e1e1e1;
+  padding: 0 !important;
+  text-align: center;
 }
 
-.OctaveNote {
-  font-weight: normal;
-  border-right: 1px solid darkslategray;
-}
-
-.OctaveNote0 {
+.ChordsOctaveNote0 {
   font-weight: bold;
   font-size: 120%;
 }
 
-.OctaveNoteInner {
+.ChordsOctaveNoteInner {
   display: block;
 }
 
-.OctaveNoteInner:hover {
+.ChordsOctaveNoteInner:hover {
   cursor: pointer;
   opacity: 0.6;
 }
