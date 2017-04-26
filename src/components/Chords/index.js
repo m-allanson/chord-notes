@@ -5,7 +5,11 @@ import './index.css'
 const Chords = ({ chords, noteNames, octave, onNoteClick, root }) => {
   const rootName = noteNames.get(root)
   return (
-    <div className="Chords">
+    <div className="Chords container">
+      <div className="ChordsHeader">
+        <h2>Chord notes</h2>
+        <p>Choose a root note to see how its chords are built</p>
+      </div>
       <table className="ChordsTable">
         <colgroup>
           <col span="1" style={{ width: '16%' }} />

@@ -2,15 +2,16 @@ import React from 'react'
 
 import history from '../../utils/history'
 
-const Link = ({ pathname, children }) => (
+const Link = props => (
   <a
-    href={pathname}
+    href={props.pathname}
     onClick={e => {
       e.preventDefault()
-      history.push(pathname)
+      history.push(props.pathname)
     }}
+    className={props.className}
   >
-    {children}
+    {props.children}
   </a>
 )
 

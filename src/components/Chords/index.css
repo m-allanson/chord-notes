@@ -1,7 +1,10 @@
+.ChordsHeader {
+  border-bottom: 1px solid #e1e1e1;
+}
+
 .ChordsCol1 {
   text-transform: capitalize;
 }
-
 
 .ChordsItemNote {
   border-right: 1px solid #e1e1e1;
