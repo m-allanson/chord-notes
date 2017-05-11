@@ -11,8 +11,16 @@ const Intro = () => (
       <p>Visualise the relationship between chords in each key</p>
     </div>
     <div>
-      <Link pathname="/note-memoriser">Note memoriser</Link>
-      <p>Generates random notes names to help with learning their positions</p>
+      <Link pathname="/random-note">Random Note</Link>
+      <p>
+        Show a random note. I use this to help with learning the positions of each note.
+      </p>
+    </div>
+    <div>
+      <Link pathname="/barre-changes">Barre chord changes</Link>
+      <p>
+        Practice changing between two random E-shaped or A-shaped barre chords
+      </p>
     </div>
   </div>
 )

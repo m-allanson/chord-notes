@@ -1,11 +1,13 @@
 // @flow
 import Intro from '../components/Intro'
 import ChordsContainer from '../components/ChordsContainer'
-import NoteMemoriserContainer from '../components/NoteMemoriserContainer'
+import RandomNoteContainer from '../components/RandomNoteContainer'
+import BarreChangesContainer from '../components/BarreChangesContainer'
 
 const routes = {
   '/chord-notes': ChordsContainer,
-  '/note-memoriser': NoteMemoriserContainer,
+  '/random-note': RandomNoteContainer,
+  '/barre-changes': BarreChangesContainer,
   '/': Intro
 }
 
