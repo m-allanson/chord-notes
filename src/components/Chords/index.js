@@ -40,6 +40,21 @@ const Chords = ({ chords, noteNames, octave, onNoteClick, root }) => {
               </th>
             ))}
           </tr>
+          <tr className="ChordsIntervals">
+            <th className="ChordsCol1">Intervals</th>
+            <th className="ChordsInterval">I</th>
+            <th className="ChordsInterval">II</th>
+            <th className="ChordsInterval">III</th>
+            <th className="ChordsInterval">IV</th>
+            <th className="ChordsInterval">V</th>
+            <th className="ChordsInterval">VI</th>
+            <th className="ChordsInterval">VII</th>
+            <th className="ChordsInterval">VIII</th>
+            <th className="ChordsInterval">IX</th>
+            <th className="ChordsInterval">X</th>
+            <th className="ChordsInterval">X</th>
+            <th className="ChordsInterval">XII</th>
+          </tr>
         </tbody>
         <tbody>
           <tr>

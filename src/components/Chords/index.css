@@ -29,3 +29,10 @@
   cursor: pointer;
   opacity: 0.6;
 }
+
+.ChordsInterval {
+  border-right: 1px solid #e1e1e1;
+  font-weight: 300;
+  padding: 0 !important;
+  text-align: center;
+}
