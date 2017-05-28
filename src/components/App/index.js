@@ -1,32 +1,23 @@
 // @flow
-import React, { Component } from 'react'
+import React from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
-import history from '../../utils/history'
-import routes from '../../utils/routes'
+import BarreChangesContainer from '../BarreChangesContainer'
+import ChordsContainer from '../ChordsContainer'
+import Intro from '../Intro'
 import Nav from '../Nav'
+import RandomNoteContainer from '../RandomNoteContainer'
 
-class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = { pathname: history.location.pathname }
-    history.listen(this.pathnameListener)
-  }
-
-  pathnameListener = location => {
-    if (location.pathname !== this.state.pathname) {
-      this.setState({ pathname: location.pathname })
-    }
-  }
-
-  render() {
-    const RouteComponent = routes[this.state.pathname]
-    return (
-      <div>
-        <Nav />
-        <RouteComponent />
-      </div>
-    )
-  }
-}
+const App = () => (
+  <Router>
+    <div>
+      <Nav />
+      <Route exact path="/" component={Intro} />
+      <Route path="/chord-notes" component={ChordsContainer} />
+      <Route path="/random-notes" component={RandomNoteContainer} />
+      <Route path="/barre-changes" component={BarreChangesContainer} />
+    </div>
+  </Router>
+)
 
 export default App
