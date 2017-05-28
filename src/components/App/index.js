@@ -14,7 +14,7 @@ const App = () => (
       <Nav />
       <Route exact path="/" component={Intro} />
       <Route path="/chord-notes" component={ChordsContainer} />
-      <Route path="/random-notes" component={RandomNoteContainer} />
+      <Route path="/random-note" component={RandomNoteContainer} />
       <Route path="/barre-changes" component={BarreChangesContainer} />
     </div>
   </Router>
