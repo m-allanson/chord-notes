@@ -52,7 +52,7 @@ const Chords = ({ chords, noteNames, octave, onNoteClick, root }) => {
             <th className="ChordsInterval">VIII</th>
             <th className="ChordsInterval">IX</th>
             <th className="ChordsInterval">X</th>
-            <th className="ChordsInterval">X</th>
+            <th className="ChordsInterval">XI</th>
             <th className="ChordsInterval">XII</th>
           </tr>
         </tbody>
